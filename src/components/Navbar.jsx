@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Container = styled(motion.div)`
   height: 80px;
@@ -123,6 +124,8 @@ const Navbar = () => {
   const closeMenu = () => setIsMenuOpen(false);
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
+  const navigate = useNavigate();
+
   return (
     <>
       <Container
@@ -135,6 +138,7 @@ const Navbar = () => {
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
+          onClick={() => navigate('/')}
         >
           <LogoImage src='/assets/mylogo.png' />
           <LogoTitle>Sahil Raza</LogoTitle>

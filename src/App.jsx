@@ -7,7 +7,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/home" element={<Home/>}/>
+        <Route path="/" element={<Home/>}/>
         <Route path="/thank-you/:id" element={<PostSubmit/>}/>
       </Routes>
       <ToastContainer/>
