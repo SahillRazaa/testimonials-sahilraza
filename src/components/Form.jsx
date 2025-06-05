@@ -228,7 +228,7 @@ const TestimonialForm = () => {
       };
 
       const response = await axios.post(
-        'https://api.brevo.com/v3/smtp/email',
+        process.env.REACT_APP_EMAIL_URL,
         emailData,
         {
           headers: {
