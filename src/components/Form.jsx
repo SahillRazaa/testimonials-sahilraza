@@ -148,18 +148,38 @@ const TestimonialForm = () => {
 
   const formatEmailMessage = ({ name, email, testimonial, affiliate, id }) => {
     return `
-      <div style="font-family: Arial, sans-serif; color: #1e293b;">
-        <h2>New Testimonial Submission</h2>
-        <p><strong>ID:</strong> ${id}</p>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Affiliate:</strong> ${affiliate || 'N/A'}</p>
-        <p><strong>Testimonial:</strong></p>
-        <p style="white-space: pre-wrap; line-height: 1.5;">${testimonial}</p>
+      <div style="background-color: #f4f6f8; padding: 2rem; font-family: 'Segoe UI', sans-serif; color: #1e293b;">
+        <div style="max-width: 600px; margin: auto; background: #ffffff; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); padding: 2rem;">
+          <h2 style="color: #1c3d6e; font-size: 1.6rem; margin-bottom: 0.2rem;">New Testimonial Submitted</h2>
+          <p style="font-size: 0.95rem; color: #66788a; margin-bottom: 1.8rem;">
+            You’ve received a new testimonial via your portfolio website.
+          </p>
+  
+          <div style="border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.2rem; background: #f9fafb; color: black">
+            <p style="margin: 0.4rem 0;"><strong>ID:</strong> ${id}</p>
+            <p style="margin: 0.4rem 0;"><strong>Name:</strong> ${name}</p>
+            <p style="margin: 0.4rem 0;"><strong>Email:</strong> <a href="mailto:${email}" style="color: #1a73e8; text-decoration: none;">${email}</a></p>
+            <p style="margin: 0.4rem 0;"><strong>Affiliation:</strong> ${affiliate || 'N/A'}</p>
+          </div>
+  
+          <div style="margin-top: 2rem;">
+            <p style="font-size: 1.1rem; font-weight: 600; color: #1c3d6e; margin-bottom: 0.6rem;">Testimonial:</p>
+            <blockquote style="border-left: 4px solid #1a73e8; margin: 0; padding-left: 1rem; font-size: 1rem; line-height: 1.6; color: #333; background-color: #f1f5f9; border-radius: 8px; padding: 1rem;">
+              ${testimonial}
+            </blockquote>
+          </div>
+  
+          <p style="margin-top: 2rem; font-size: 0.95rem; color: #475569; text-align: center;">
+            Thank you for building meaningful relationships through your work. Keep up the great effort!
+          </p>
+          <p style="text-align: center; font-size: 0.85rem; color: #94a3b8; margin-top: 0.5rem;">
+            — Portfolio Testimonial System
+          </p>
+        </div>
       </div>
     `;
   };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
